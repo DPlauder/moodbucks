@@ -23,10 +23,11 @@ class Drink {
 
 //Order Factory Function
 const Order = () => {
-  const cart = [];
+  let cart = [];
 
   const addToCart = (drink) => {
     let quantity = 1;
+
 
     if (cart.length > 0) {
       cart.forEach((item) => {
@@ -71,14 +72,19 @@ const Order = () => {
         "-"
       );
 
-      // add EventListner to dec_button > call function removeItem() 
-	  // when clicked and give an argument to the function
+      //-------------added<-----------------------------------------------------------------------------------------------
+      dec_button.addEventListener('click', () => {
+        removeItem(cart_item)
+      }) 
     });
   };
 
-  const removeItem = () => { //add argument
-    //dec quantity in cart
-    //check if quantity == 0 > remove item from cart
+  const removeItem = (cart_item) => {
+    cart_item.quantity -= 1
+    if(cart_item.quantity === 0){
+      cart = cart.filter(item => item.quantity > 0)
+      console.log(cart);
+    }
     updateCart();
   };
 
@@ -90,11 +96,12 @@ const Order = () => {
 //create Tags
 function createTag(parent_node, tag_node, id_name, class_name, content) {
   const tag = document.createElement(tag_node);
+  //console.log(tag);
 
   if (parent_node != null) {
     parent_node.append(tag);
   } else {
-    const startpoint = document.getElementById("content");
+    const startpoint = document.getElementById('content')
     startpoint.append(tag);
   }
 

@@ -190,12 +190,14 @@ function createMenu(menulist) {
     "coffee_s_heading",
     "Coffee Specials"
   );
+  createTag(menu_coffee, "div", "coffee_cards", "coffee_cards")
+  createTag(menu_coffee_special, "div", "coffee_cards_special", "coffee_cards_special")
 
   menulist.forEach((drink) => {
     if (drink.getType() === "coffee") {
-      createCard(menu_coffee, drink, order);
+      createCard(coffee_cards, drink, order);
     } else if (drink.getType() === "coffee_special") {
-      createCard(menu_coffee_special, drink, order);
+      createCard(coffee_cards_special, drink, order);
     }
   });
 }
@@ -210,7 +212,13 @@ function createOrder() {
 //create footer
 function createFooter() {
 	const footer = createTag(null, "footer");
-  const logo = createTag(footer, "div", null, "logo_footer");
+  const logo = createTag(footer, "div", null, "logo_footer", "LOGO");
+  const social = createTag(footer, "div", "social", "social")
+  const fb = createTag(social, "i", null, "symbol fa-brands fa-facebook")
+  const insta = createTag(social, "i", null, "symbol fa-brands fa-instagram")
+  const twitter = createTag(social, "i", null, "symbol fa-brands fa-twitter")
+
+
 }
 
 //main function

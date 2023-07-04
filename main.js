@@ -71,8 +71,6 @@ const Order = () => {
         "decrease_num",
         "-"
       );
-
-      //-------------added<-----------------------------------------------------------------------------------------------
       dec_button.addEventListener('click', () => {
         removeItem(cart_item)
       }) 
@@ -83,7 +81,7 @@ const Order = () => {
     cart_item.quantity -= 1
     if(cart_item.quantity === 0){
       cart = cart.filter(item => item.quantity > 0)
-      console.log(cart);
+
     }
     updateCart();
   };
@@ -146,8 +144,8 @@ function createMultiTags(parent_node, tag_node, num, list, menu) {
 //create header
 function createHeader() {
   const header = createTag(null, "header");
-  const logo = createTag(header, "div", null, "logo_header");
-  const heading = createTag(header, "h1", null, null, "Moonbucks");
+  const logo = createTag(header, "div", null, "logo_header", "LOGO");
+  const heading = createTag(header, "h1", null, null, "MOONBUCKS");
   const nav_header = createTag(header, "nav", "nav_header");
   const menu = createTag(nav_header, "ul", null, "menu_header");
 
@@ -211,8 +209,8 @@ function createOrder() {
 
 //create footer
 function createFooter() {
-	// add space the logo
-	// add the social links (facebook, instagram, twitter)
+	const footer = createTag(null, "footer");
+  const logo = createTag(footer, "div", null, "logo_footer");
 }
 
 //main function

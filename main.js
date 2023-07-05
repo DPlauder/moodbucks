@@ -73,8 +73,10 @@ const Order = () => {
       );
       dec_button.addEventListener('click', () => {
         removeItem(cart_item)
-      }) 
+      })
+      
     });
+    sum_cart(cart)
   };
 
   const removeItem = (cart_item) => {
@@ -83,8 +85,18 @@ const Order = () => {
       cart = cart.filter(item => item.quantity > 0)
 
     }
-    updateCart();
+    updateCart();    
   };
+
+  const sum_cart = (cart) => {
+    const display = document.getElementById('sum'); 
+    let sum = 0;
+    cart.forEach((item) => {
+      sum += item.drink.price * item.quantity
+    })
+    display.innerHTML = "€ "+ sum.toFixed(2);
+
+  }
 
   return {
     addToCart,
@@ -205,8 +217,11 @@ function createMenu(menulist) {
 //create order
 function createOrder() {
   const order_section = createTag(null, "section", "order_section", "order");
-  createTag(order_section, "h2", null, "order_heading", "Your Order");
-  createTag(order_section, "div", "cart_section");
+  const odering_head = createTag(order_section, "h2", null, "order_heading", "Your Order");
+  const cart_section = createTag(order_section, "div", "cart_section");
+  const sum_box = createTag(order_section, "div", null, 'sum_box');
+  const sum_text = createTag(sum_box, "div", "sum_txt", "sum_txt", "Summe");
+  const sum = createTag(sum_box, "div", "sum", "sum", "€ 0.00");
 }
 
 //create footer

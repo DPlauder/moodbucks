@@ -65,8 +65,7 @@ h2 {
     display: flex;
     flex-direction: column;
 }
-.menu_sub_section {
-}
+
 .coffee_cards {
     display: flex;
     flex-wrap: wrap;
@@ -76,10 +75,37 @@ h2 {
     display: flex;
     flex-wrap: wrap;
 }
+.card {
+    margin:20px;
+    width: 200px;
+    border: 1px solid rgb(202, 201, 201);
+    border-radius: 3px;
+    height: 150px;
+    display: grid;
+    grid-template-rows: 2fr 3fr 30px;
+}
+.drink_name {
+    text-align: center;
+    background-color: rgb(77, 76, 76);
+    color: white;
+}
+.drink_price{
+    margin: 10px;
+    border-bottom: 1px solid rgb(226, 225, 225);
+    align-self:flex-end;
+}
+
+.add_button {
+    width: 30%;
+    justify-self:center;
+    align-self: center;
+}
 
 .order{
     width: 100%;
     margin-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     grid-row: 2;
     grid-column: 2;
     border-left: 1px solid grey;
@@ -91,28 +117,40 @@ h2 {
 }
 #cart_section{
     display: grid;
-    justify-items: center;
+    justify-content: stretch;
+
 }
 .cart_item{
     margin-bottom: 10px;
-    width: 90%;
     display: grid;
     grid-template-columns: 3fr 2fr 1fr 1fr;
 }
-
-
-.card {
-    margin:20px;
-    width: 200px;
-    border-top: 1px solid rgb(202, 201, 201);
-    border-bottom: 1px solid rgb(202, 201, 201);
-    border-radius: 3px;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content:space-around;
-    align-items: center;
+.cart_item_price {
+    justify-self: end;
 }
+
+.cart_item_num {
+    justify-self: center;
+}
+
+.sum_box {
+    justify-self: center;
+    text-align: end;
+    padding-top: 10px;
+    border-top: 1px solid gray;
+    display: grid;
+    grid-template-columns: 3fr 2fr 1fr 1fr;
+    justify-items: center;
+}
+.sum_txt {
+    justify-self: start;
+}
+.sum {
+    justify-self: end;
+}
+
+
+
 
 
 footer {
